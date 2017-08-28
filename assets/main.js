@@ -11,32 +11,27 @@ $(document).ready(function() {
     e.preventDefault();
   }, false);
 
-  /*       THE IMAGE LABLES ARRAY             */
+  /*          VARIABLES             */
 
+  let dropBox = document.getElementById('dropBox')
+  let imgData
+  let dataTransfer
+  let files
+  let file
+  let base64Image
+  let ajaxPostData
   let imgLabels = []
 
+  /*           FUNCTIONS             */
   let getImgLabels = (data) => {
 
-    let imgData = data.responses[0].labelAnnotations
+    imgData = data.responses[0].labelAnnotations
 
     imgData.forEach((obj) => imgLabels.push(obj.description))
     console.log('IMG DATA= ', imgData);
     console.log('IMG LABELS= ', imgLabels);
   }
-  /*        CREATING A DROP BOX             */
-
-  let dropBox = document.getElementById('dropBox')
-
-  /*     ADDING EVENT LISTENERS TO DROPBOX   */
-
-
-  $('#dropBox').on("dragenter", dragEnter)
-  $('#dropBox').on("dragleave", dragLeave)
-  $('#dropBox').on("dragover", dragOver)
-  dropBox.addEventListener("drop", drop, false)
-
-  /*    FUNCTIONS OF THE EVENTLISTENERS      */
-
+  /*    events      */
   function dragEnter(e) {
     e.stopPropagation()
     e.preventDefault()
@@ -58,15 +53,29 @@ $(document).ready(function() {
     // console.log('dragOver')
   }
 
+
+
+
+  /*     ADDING EVENT LISTENERS TO DROPBOX   */
+
+
+  $('#dropBox').on("dragenter", dragEnter)
+  $('#dropBox').on("dragleave", dragLeave)
+  $('#dropBox').on("dragover", dragOver)
+  dropBox.addEventListener("drop", drop, false)
+
+
+
+
   /*  ASSIGNING LOADED IMG TO VARIABLES  */
 
-  function drop(e) {
-    e.stopPropagation()
-    e.preventDefault()
-
-    let dataTransfer = e.dataTransfer
-    let files = dataTransfer.files
-    let file = files[0]
+  function drop(event) {
+    event.stopPropagation()
+    event.preventDefault()
+    imgLabels = []
+    dataTransfer = event.dataTransfer
+    files = dataTransfer.files
+    file = files[0]
     // console.log("DROPBOX filelist is: ", files)
     // console.log('DROPBOX imageFile: ', file)
 
@@ -77,11 +86,11 @@ $(document).ready(function() {
 
       reader.onload = function(readerEvt) {
         let binaryString = readerEvt.target.result;
-        let base64Image = btoa(binaryString);
+        base64Image = btoa(binaryString);
 
         // console.log("base64Image = ", base64Image);
 
-        let ajaxPostData = {
+        ajaxPostData = {
           "requests": [{
             "image": {
               "content": `${base64Image}`
@@ -106,7 +115,7 @@ $(document).ready(function() {
         }) // end of AJAX Request
 
         $xhr.done((data) => {
-          console.log("data from google is...", data)
+          // console.log("data from google is...", data)
 
           getImgLabels(data)
 
