@@ -1,0 +1,29 @@
+.headerBgImg {
+  background: url(/assets/img/crystal-ball-table.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 70vw;
+  border: 5px solid blue;
+}
+
+.container {
+  border: 2px solid green;
+}
+
+.title {
+  color: white;
+  font-family: 'Creepster'
+}
+
+.sub-title {
+  color: rgb(191, 174, 218)
+}
+
+.dropzone {
+  position: fixed;
+  top: 30%;
+  left: 36%;
+  width: 29%;
+  height: 326px;
+  border: 2px solid red;
+}
