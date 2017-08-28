@@ -11,6 +11,18 @@ $(document).ready(function() {
     e.preventDefault();
   }, false);
 
+  /*       THE IMAGE LABLES ARRAY             */
+
+  let imgLabels = []
+
+  let getImgLabels = (data) => {
+
+    let imgData = data.responses[0].labelAnnotations
+
+    imgData.forEach((obj) => imgLabels.push(obj.description))
+    console.log('IMG DATA= ', imgData);
+    console.log('IMG LABELS= ', imgLabels);
+  }
   /*        CREATING A DROP BOX             */
 
   let dropBox = document.getElementById('dropBox')
@@ -29,7 +41,7 @@ $(document).ready(function() {
     e.stopPropagation()
     e.preventDefault()
     $("#dropBox").addClass('drag-on')
-    console.log('dragEnter')
+    // console.log('dragEnter')
   }
 
   function dragLeave(e) {
@@ -37,15 +49,13 @@ $(document).ready(function() {
     e.preventDefault()
     $("#dropBox").removeClass('drag-on')
 
-    console.log('dragLeave')
+    // console.log('dragLeave')
   }
 
   function dragOver(e) {
     e.stopPropagation()
     e.preventDefault()
-
-
-    console.log('dragOver')
+    // console.log('dragOver')
   }
 
   /*  ASSIGNING LOADED IMG TO VARIABLES  */
@@ -69,7 +79,7 @@ $(document).ready(function() {
         let binaryString = readerEvt.target.result;
         let base64Image = btoa(binaryString);
 
-        console.log("base64Image = ", base64Image);
+        // console.log("base64Image = ", base64Image);
 
         let ajaxPostData = {
           "requests": [{
@@ -95,9 +105,10 @@ $(document).ready(function() {
           data: JSON.stringify(ajaxPostData),
         }) // end of AJAX Request
 
-        $xhr.done((response) => {
+        $xhr.done((data) => {
+          console.log("data from google is...", data)
 
-          console.log("data from google is...", response)
+          getImgLabels(data)
 
         })
         $xhr.fail((err) => {

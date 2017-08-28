@@ -16,7 +16,7 @@
   left: 36%;
   width: 28%;
   height: 390px;
-  border: 2px solid rgba(244, 4, 4, 0.29);
+  /*border: 2px solid rgba(244, 4, 4, 0.29);*/
   border-radius: 50%;
 }
 
@@ -31,6 +31,7 @@
 
 .response-container {
   background-color: #1B122D;
+  height: 30vw;
 }
 
 .message-text, .message-title {
