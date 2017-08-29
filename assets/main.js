@@ -64,6 +64,7 @@ $(document).ready(function() {
 
 
   let renderFortune = (text) => {
+    $('#fortuneText').empty()
     $('#fortuneText').append(text)
   }
 
