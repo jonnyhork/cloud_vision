@@ -35,13 +35,13 @@ $(document).ready(function() {
   function dragEnter(e) {
     e.stopPropagation()
     e.preventDefault()
-    $("#dropBox").addClass('drag-on')
+    // $("#dropBox").addClass('drag-on')
   }
 
   function dragLeave(e) {
     e.stopPropagation()
     e.preventDefault()
-    $("#dropBox").removeClass('drag-on')
+    // $("#dropBox").removeClass('drag-on')
   }
 
   function dragOver(e) {
