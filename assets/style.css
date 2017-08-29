@@ -16,17 +16,18 @@
   left: 36%;
   width: 28%;
   height: 390px;
-  border: 2px solid rgba(244, 4, 4, 0.29);
+  /*border: 2px solid rgba(244, 4, 4, 0.29);*/
   border-radius: 50%;
 }
 
 .heading-container {
+  max-height: 700px;
   width: 100%;
 }
 
 .title {
   position: relative;
-  top: -383px;
+  top: -200px;
   margin-left: 140px;
   margin-top: 70px;
 }
@@ -51,8 +52,8 @@
 }
 
 .message-title, .message-pretext {
-  margin-left: 30px;
-  margin-top: 50px;
+  padding-left: 30px;
+  padding-top: 90px;
   font-family: "Lily Script One";
   color: rgb(91, 192, 222);
 }
