@@ -50,13 +50,16 @@ $(document).ready(function() {
   }
 
   let createFortune = (arr) => {
-    let fortune = `<p>I can see....a, wait, yeah... it's definately something like ${arr[0]}.</p>
-    <p>I sense that ${arr[1]} is in your near future, or past...<br>
-    There has been a few things on your mind recently, things like ${arr[2]} and ${arr[3]}.<br>
-    You may be interested in ${arr[4]}, ${arr[5]},${arr[6]} but you you are not quite certain.You prefer a certain amount of change and variety and become dissatisfied when hemmed in by restrictions and limitations.</p>
-    <h5>Ah, yes, I sense there is more..</h5>
-    <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore${arr[7]} or ${arr[8]} and ${arr[9]}.<br>
-    Proceed with caution around${arr[10]}</p>
+    let fortune = `<p>I can see....a, wait, yeah... it's definately something like <em>${arr[0]}</em>.</p>
+    <p>I sense that <em>${arr[1]}</em> is in your near future, or past...
+    <br>
+    Your thoughts have been occupied recently, by things like <em>${arr[2]}</em> and <em>${arr[3]}</em>.
+    <br>
+    You may be interested in <em>${arr[4]}</em>, <em>${arr[5]}</em> and <em>${arr[6]}</em> but you're not quite certain. You prefer a certain amount of change and variety and become dissatisfied when hemmed in by restrictions and limitations.</p>
+    <h3>Ah, yes, I sense there is more..</h3>
+    <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore <em>${arr[7]}</em> or <em>${arr[8]}</em> and <em>${arr[9]}</em>.
+    <br>
+    Proceed with caution around ${arr[10]}</p>
 `
     renderFortune(fortune)
   }
@@ -110,7 +113,7 @@ $(document).ready(function() {
             },
             "features": [{
               "type": "LABEL_DETECTION",
-              "maxResults": 10
+              "maxResults": 11
             }]
           }]
         }
@@ -132,7 +135,7 @@ $(document).ready(function() {
 
           getImgLabels(data)
           createFortune(imgLabels)
-
+          console.log("IMG LABELS: ", imgLabels);
 
 
         })
