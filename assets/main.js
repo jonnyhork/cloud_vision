@@ -55,8 +55,11 @@ $(document).ready(function() {
     <br>
     Your thoughts have been occupied recently, by things like <em>${arr[2]}</em> and <em>${arr[3]}</em>.
     <br>
-    You may be interested in <em>${arr[4]}</em>, <em>${arr[5]}</em> and <em>${arr[6]}</em> but you're not quite certain. You prefer a certain amount of change and variety and become dissatisfied when hemmed in by restrictions and limitations.</p>
+    You may be interested in <em>${arr[4]}</em>, <em>${arr[5]}</em> and <em>${arr[6]}</em> but you're not quite certain.<br>
+    You prefer a certain amount of change and variety and become dissatisfied when faced with restrictions and limitations.</p>
+    <br>
     <h3>Ah, yes, I sense there is more..</h3>
+    <br>
     <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore <em>${arr[7]}</em> or <em>${arr[8]}</em> and <em>${arr[9]}</em>.
     <br>
     Proceed with caution around ${arr[10]}</p>
