@@ -16,7 +16,7 @@
   left: 36%;
   width: 28%;
   height: 390px;
-  /*border: 2px solid rgba(244, 4, 4, 0.29);*/
+  border: 2px solid rgba(244, 4, 4, 0.29);
   border-radius: 50%;
 }
 
@@ -27,16 +27,13 @@
 .title {
   position: relative;
   top: -383px;
-  margin-left: 94px;
-  min-width: 1800px;
-  max-width: 100%;
-  margin-top: 60px;
-  /*color: white;*/
-  /*font-family: 'Creepster'*/
+  margin-left: 140px;
+  margin-top: 70px;
 }
 
 .sub-title {
   position: absolute;
+  margin-top: 10px;
   font-family: 'Creepster';
   color: rgb(191, 174, 218)
 }
