@@ -36,24 +36,36 @@ $(document).ready(function() {
     e.stopPropagation()
     e.preventDefault()
     $("#dropBox").addClass('drag-on')
-    // console.log('dragEnter')
   }
 
   function dragLeave(e) {
     e.stopPropagation()
     e.preventDefault()
     $("#dropBox").removeClass('drag-on')
-
-    // console.log('dragLeave')
   }
 
   function dragOver(e) {
     e.stopPropagation()
     e.preventDefault()
-    // console.log('dragOver')
+  }
+
+  let createFortune = (arr) => {
+    let fortune = `<p>I can see....a, wait, yeah... it's definately something like ${arr[0]}.</p>
+    <p>I sense that ${arr[1]} is in your near future, or past...</p>
+    There has been a few things on your mind recently, things like ${arr[2]} and
+    ${arr[3]}.</p>
+    <p>You may be interested in ${arr[4]} but you you are not quite certain.</p>
+    <br>
+    <p>${arr[5]}</p>
+    <p>${arr[6]}</p>
+`
+    renderFortune(fortune)
   }
 
 
+  let renderFortune = (text) => {
+    $('#fortuneText').append(text)
+  }
 
 
   /*     ADDING EVENT LISTENERS TO DROPBOX   */
@@ -118,6 +130,9 @@ $(document).ready(function() {
           // console.log("data from google is...", data)
 
           getImgLabels(data)
+          createFortune(imgLabels)
+
+
 
         })
         $xhr.fail((err) => {
