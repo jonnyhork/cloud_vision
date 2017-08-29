@@ -20,10 +20,19 @@
   border-radius: 50%;
 }
 
+.heading-container {
+  width: 100%;
+}
+
 .title {
+  position: relative;
+  top: -383px;
+  margin-left: 94px;
+  min-width: 1800px;
+  max-width: 100%;
   margin-top: 60px;
-  color: white;
-  font-family: 'Creepster'
+  /*color: white;*/
+  /*font-family: 'Creepster'*/
 }
 
 .sub-title {
@@ -32,10 +41,18 @@
 
 .response-container {
   background-color: #1B122D;
-  height: 30vw;
+  min-height: 30vw;
 }
 
-.message-text, .message-title {
+.message-text {
+  font-size: 2em;
+  font-family: "Merienda";
+  margin: 40px auto 10px auto;
+  color: rgb(191, 174, 218);
+}
+
+.message-title {
+  font-family: "Lily Script One";
   color: rgb(191, 174, 218);
 }
 

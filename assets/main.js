@@ -52,7 +52,7 @@ $(document).ready(function() {
   let createFortune = (arr) => {
     let fortune = `<p>I can see....a, wait, yeah... it's definately something like ${arr[0]}.</p>
     <p>I sense that ${arr[1]} is in your near future, or past...<br>
-    There has been a few things on your mind recently, things like ${arr[2]} and${arr[3]}.<br>
+    There has been a few things on your mind recently, things like ${arr[2]} and ${arr[3]}.<br>
     You may be interested in ${arr[4]}, ${arr[5]},${arr[6]} but you you are not quite certain.You prefer a certain amount of change and variety and become dissatisfied when hemmed in by restrictions and limitations.</p>
     <h5>Ah, yes, I sense there is more..</h5>
     <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore${arr[7]} or ${arr[8]} and ${arr[9]}.<br>
