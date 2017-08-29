@@ -50,7 +50,7 @@
   color: rgb(191, 174, 218);
 }
 
-.message-title {
+.message-title, .message-pretext {
   margin-left: 30px;
   margin-top: 50px;
   font-family: "Lily Script One";

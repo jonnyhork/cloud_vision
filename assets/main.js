@@ -10,7 +10,7 @@ $(document).ready(function() {
   window.addEventListener("drop", function(e) {
     e.preventDefault();
   }, false);
-
+  $('.message-pretext').hide()
   /*          VARIABLES             */
 
   let dropBox = document.getElementById('dropBox')
@@ -68,8 +68,9 @@ $(document).ready(function() {
 
 
   let renderFortune = (text) => {
+    $('.message-pretext').fadeIn(1000)
     $('#fortuneText').empty()
-    $('#fortuneText').append(text)
+    $('#fortuneText').hide().append(text).fadeIn(3000)
 
   }
 
@@ -134,7 +135,7 @@ $(document).ready(function() {
 
         $xhr.done((data) => {
           // console.log("data from google is...", data)
-
+          $('.message-pretext').fadeIn(1000)
           getImgLabels(data)
           createFortune(imgLabels)
           console.log("IMG LABELS: ", imgLabels);
