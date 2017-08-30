@@ -12,6 +12,7 @@ $(document).ready(function() {
   }, false);
   $('.message-pretext').hide()
 
+
   /*          VARIABLES             */
 
   let dropBox = document.getElementById('dropBox')
@@ -36,6 +37,8 @@ $(document).ready(function() {
   let crystalImg = () => {
     $("#crystalImg").attr("src", `data:image/png;base64,${base64Image}`)
   }
+
+
   /*    events      */
   function dragEnter(e) {
     e.stopPropagation()
@@ -52,6 +55,7 @@ $(document).ready(function() {
   function dragOver(e) {
     e.stopPropagation()
     e.preventDefault()
+    // $("#dropBox").removeClass('drag-on')
   }
 
   let createFortune = (arr) => {
@@ -85,7 +89,6 @@ $(document).ready(function() {
 
   }
 
-
   /*     ADDING EVENT LISTENERS TO DROPBOX   */
 
 
@@ -93,7 +96,6 @@ $(document).ready(function() {
   $('#dropBox').on("dragleave", dragLeave)
   $('#dropBox').on("dragover", dragOver)
   dropBox.addEventListener("drop", drop, false)
-
 
 
 
@@ -106,6 +108,7 @@ $(document).ready(function() {
     dataTransfer = event.dataTransfer
     files = dataTransfer.files
     file = files[0]
+    // display loading grapghic
     // console.log("DROPBOX filelist is: ", files)
     // console.log('DROPBOX imageFile: ', file)
 
@@ -135,26 +138,23 @@ $(document).ready(function() {
         // console.log("POST_JSON IS:", ajaxPostData)
 
         /*    MAKE THE AJAX CALL, ONCE THERE IS A FILE LOADED  */
-        let $xhr = $.ajax({
+        $.ajax({
           url: 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAQPPYpUEbyZdx7UZyUmTZxL8SddruT_Uo',
           method: 'POST',
           dataType: 'JSON',
           headers: {
             "Content-Type": "application/json",
           },
-          data: JSON.stringify(ajaxPostData),
-        }) // end of AJAX Request
-
-        $xhr.done((data) => {
+          data: JSON.stringify(ajaxPostData), // end of AJAX Request
+        }).done((data) => {
           // console.log("data from google is...", data)
+          // Hide loading graphic
           $('.message-pretext').fadeIn(1000)
           getImgLabels(data)
           createFortune(imgLabels)
           // console.log("IMG LABELS: ", imgLabels);
 
-
-        })
-        $xhr.fail((err) => {
+        }).fail((err) => {
           console.log("error happened with getting labels", err)
         })
 
