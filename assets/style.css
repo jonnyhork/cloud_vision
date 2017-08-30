@@ -46,15 +46,21 @@
 
 .message-text {
   font-size: 2em;
-  font-family: "Merienda";
+  font-family: "Trade Winds";
   margin: 40px auto 10px auto;
   color: rgb(191, 174, 218);
 }
 
-.message-title, .message-pretext {
+.message-pretext {
   padding-left: 30px;
   padding-top: 90px;
-  font-family: "Lily Script One";
+  font-family: "Finger Paint";
+  color: rgb(91, 192, 222);
+}
+
+.message-title {
+  padding: 10px 0 10px 20px;
+  font-family: "Finger Paint";
   color: rgb(91, 192, 222);
 }
 
