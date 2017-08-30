@@ -12,11 +12,11 @@
 
 .dropzone {
   position: fixed;
-  top: 27%;
+  top: 26%;
   left: 36%;
   width: 28%;
-  height: 390px;
-  /*border: 2px solid rgba(244, 4, 4, 0.29);*/
+  height: 424px;
+  /* border: 2px solid rgba(244, 4, 4, 0.29); */
   border-radius: 50%;
 }
 
