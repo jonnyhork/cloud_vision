@@ -48,13 +48,6 @@
   min-height: 30vw;
 }
 
-.message-text {
-  font-size: 2em;
-  font-family: "Trade Winds";
-  margin: 40px auto 200px auto;
-  color: rgb(191, 174, 218);
-}
-
 .message-pretext {
   padding-left: 30px;
   padding-top: 90px;
@@ -62,12 +55,25 @@
   color: rgb(91, 192, 222);
 }
 
+.message-text {
+  font-size: 2em;
+  font-family: "Trade Winds";
+  margin: 40px auto 200px auto;
+  color: rgb(191, 174, 218);
+}
+
+em {
+  color: rgba(180, 138, 243, 1);
+}
+
+;
+
+}
 .message-title {
   padding: 10px 0 10px 20px;
   font-family: "Finger Paint";
   color: rgb(91, 192, 222);
 }
-
 .container {
   /*border: 2px solid green;*/
 }
