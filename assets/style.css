@@ -74,11 +74,11 @@
   font-size: 2em;
   font-family: "Trade Winds";
   margin: 40px auto 200px auto;
-  color: rgb(191, 174, 218);
+  color: rgb(230, 215, 255);
 }
 
 em {
-  color: rgba(180, 138, 243, 1);
+  color: rgba(180, 138, 243, .8);
 }
 
 .message-title {
