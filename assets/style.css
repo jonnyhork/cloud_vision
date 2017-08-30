@@ -20,6 +20,10 @@
   border-radius: 50%;
 }
 
+.dropImg {
+  opacity: .2;
+}
+
 .heading-container {
   max-height: 700px;
   width: 100%;

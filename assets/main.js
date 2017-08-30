@@ -33,9 +33,9 @@ $(document).ready(function() {
     console.log('IMG LABELS= ', imgLabels);
   }
 
-  // let crystalImg = () => {
-  //   $("#crystalImg").attr("src", `data:image/png;base64,${base64Image}`)
-  // }
+  let crystalImg = () => {
+    $("#crystalImg").attr("src", `data:image/png;base64,${base64Image}`)
+  }
   /*    events      */
   function dragEnter(e) {
     e.stopPropagation()
@@ -118,7 +118,7 @@ $(document).ready(function() {
       reader.onload = function(readerEvt) {
         let binaryString = readerEvt.target.result;
         base64Image = btoa(binaryString);
-        // crystalImg()
+        crystalImg()
         // console.log("base64Image = ", base64Image);
 
         ajaxPostData = {
@@ -150,7 +150,7 @@ $(document).ready(function() {
           $('.message-pretext').fadeIn(1000)
           getImgLabels(data)
           createFortune(imgLabels)
-          console.log("IMG LABELS: ", imgLabels);
+          // console.log("IMG LABELS: ", imgLabels);
 
 
         })
