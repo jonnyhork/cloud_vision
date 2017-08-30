@@ -46,7 +46,7 @@
 .title {
   position: relative;
   top: -200px;
-  margin-left: 140px;
+  margin-left: 45px;
   margin-top: 70px;
   overflow: hidden;
 }
@@ -85,4 +85,10 @@ em {
   padding: 10px 0 10px 20px;
   font-family: "Finger Paint";
   color: rgb(91, 192, 222);
+}
+
+#musicBtn {
+  color: rgb(91, 192, 222);
+  padding: 10px;
+  font-size: 2em;
 }

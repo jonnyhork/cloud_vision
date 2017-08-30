@@ -1,16 +1,18 @@
 $(document).ready(function() {
   console.log('doc ready!');
-  /*
-      Prevent window from displaying image when dropped
-  */
 
+  $('.message-pretext').hide()
+  window.addEventListener("load", () => audioPlayer())
+  /*
+  Prevent window from displaying image when dropped
+  */
   window.addEventListener("dragover", function(e) {
     e.preventDefault();
   }, false);
   window.addEventListener("drop", function(e) {
     e.preventDefault();
   }, false);
-  $('.message-pretext').hide()
+
 
 
   /*          VARIABLES             */
@@ -38,8 +40,9 @@ $(document).ready(function() {
     $("#crystalImg").attr("src", `data:image/png;base64,${base64Image}`)
   }
 
-
   /*    events      */
+  // $("#musicBtn").click(togglePlay())
+
   function dragEnter(e) {
     e.stopPropagation()
     e.preventDefault()
@@ -81,7 +84,6 @@ $(document).ready(function() {
     renderFortune(fortune)
   }
 
-
   let renderFortune = (text) => {
     $('.message-pretext').fadeIn(1000)
     $('#fortuneText').empty()
@@ -89,15 +91,28 @@ $(document).ready(function() {
 
   }
 
-  /*     ADDING EVENT LISTENERS TO DROPBOX   */
+  function audioPlayer() {
+    console.log('audio')
+    audio = new Audio()
+    audio.src = "assets/audio/Darkness.mp3"
+    audio.loop = true
+    audio.volume = .2
+    audio.paused = true
+  }
 
+  /*     ADDING EVENT LISTENERS    */
 
   $('#dropBox').on("dragenter", dragEnter)
   $('#dropBox').on("dragleave", dragLeave)
   $('#dropBox').on("dragover", dragOver)
   dropBox.addEventListener("drop", drop, false)
-
-
+  $('#musicBtn').click(function() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
 
   /*  ASSIGNING LOADED IMG TO VARIABLES  */
 
