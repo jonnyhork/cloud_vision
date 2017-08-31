@@ -90,12 +90,14 @@ $(document).ready(function() {
     Proceed with caution around <em>${arr[10]}</em>.</p>
 `
     renderFortune(fortune)
+    console.log("at append mood:", mood)
   }
 
-  let renderFortune = (text) => {
+  let renderFortune = (text, mood) => {
+    console.log("at append mood:", mood);
     $('.message-pretext').fadeIn(1000)
     $('#fortuneText').empty()
-    $('#fortuneText').hide().append(text).fadeIn(3000)
+    $('#fortuneText').hide().append(text).fadeIn(7000)
 
   }
 
@@ -142,7 +144,7 @@ $(document).ready(function() {
   let parseSentimentData = (sentimentData) => {
 
     sentimentScore = sentimentData['documentSentiment']['score']
-    sentimentMagnitude = sentimentData['documentSentiment']['magnitude']
+    // sentimentMagnitude = sentimentData['documentSentiment']['magnitude']
 
     console.log("sentimentScore = ", sentimentScore);
     // console.log("sentimentMagnitude = ", sentimentMagnitude);
@@ -159,7 +161,8 @@ $(document).ready(function() {
     } else {
       mood = "I can't determine your mood."
     }
-    console.log("The mood is: ", mood);
+    // console.log("The mood is: ", mood);
+    $('#moodDiv').hide().append(mood).fadeIn(5000)
   }
 
 
