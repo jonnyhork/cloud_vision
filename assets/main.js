@@ -106,7 +106,7 @@ $(document).ready(function() {
     audio = new Audio()
     audio.src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/music.mp3"
     audio.loop = true
-    audio.volume = .2
+    audio.volume = .4
     audio.paused = true
   }
 
@@ -157,7 +157,7 @@ $(document).ready(function() {
     } else if (sentimentScore >= -0.2 && sentimentScore <= 0.2) {
       mood = `I sense you are content, perhaps neutral.`
     } else if (sentimentScore >= 0.3 && sentimentScore <= 1) {
-      mood = `It appears that you are satisfied or happy at the moment.`
+      mood = `It appears that you are satisfied and happy at the moment.`
     } else {
       mood = "I can't determine your mood."
     }
