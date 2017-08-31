@@ -119,6 +119,7 @@ $(document).ready(function() {
   function drop(event) {
     event.stopPropagation()
     event.preventDefault()
+    $('.message-pretext').hide()
     imgLabels = []
     dataTransfer = event.dataTransfer
     files = dataTransfer.files
