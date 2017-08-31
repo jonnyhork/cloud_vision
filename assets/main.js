@@ -94,7 +94,7 @@ $(document).ready(function() {
   function audioPlayer() {
     console.log('audio')
     audio = new Audio()
-    audio.src = "assets/audio/Darkness.mp3"
+    audio.src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/music.mp3"
     audio.loop = true
     audio.volume = .2
     audio.paused = true
