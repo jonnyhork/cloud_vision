@@ -27,8 +27,13 @@ $(document).ready(function() {
   let sentimentPostData
   let imgLabels = []
   let labelsString
+  let sentimentScore
+  let sentimentMagnitude
+
 
   /*           FUNCTIONS             */
+
+
   let getImgLabels = (data) => {
 
     imgData = data.responses[0].labelAnnotations
@@ -47,24 +52,20 @@ $(document).ready(function() {
   }
 
   /*    events      */
-  // $("#musicBtn").click(togglePlay())
 
   function dragEnter(e) {
     e.stopPropagation()
     e.preventDefault()
-    // $("#dropBox").addClass('drag-on')
   }
 
   function dragLeave(e) {
     e.stopPropagation()
     e.preventDefault()
-    // $("#dropBox").removeClass('drag-on')
   }
 
   function dragOver(e) {
     e.stopPropagation()
     e.preventDefault()
-    // $("#dropBox").removeClass('drag-on')
   }
 
   let createFortune = (arr) => {
@@ -125,8 +126,9 @@ $(document).ready(function() {
         "Content-Type": "application/json",
       },
       data: JSON.stringify(sentimentPostData),
-    }).done((senimentData) => {
-      console.log("SENTIMENT DATA IS = ", senimentData)
+    }).done((sentimentData) => {
+      console.log("SENTIMENT DATA IS = ", sentimentData)
+      parseSentimentData(sentimentData)
     }).fail((err) => {
       console.log("something failed with sentiment API: ", err);
     }) // end of AJAX Request
@@ -135,12 +137,24 @@ $(document).ready(function() {
 
   } // end of getSentiment()
 
+  let parseSentimentData = (sentimentData) => {
+
+    sentimentScore = sentimentData['documentSentiment']['score']
+    sentimentMagnitude = sentimentData['documentSentiment']['magnitude']
+
+    console.log("sentimentScore = ", sentimentScore);
+    console.log("sentimentMagnitude = ", sentimentMagnitude);
+  }
+
+
   /*     ADDING EVENT LISTENERS    */
+
 
   $('#dropBox').on("dragenter", dragEnter)
   $('#dropBox').on("dragleave", dragLeave)
   $('#dropBox').on("dragover", dragOver)
   dropBox.addEventListener("drop", drop, false)
+  /*   music play-pause   */
   $('#musicBtn').click(function() {
     if (audio.paused) {
       audio.play();
@@ -148,6 +162,9 @@ $(document).ready(function() {
       audio.pause();
     }
   });
+
+
+
 
   /*  ASSIGNING LOADED IMG TO VARIABLES  */
 
@@ -187,7 +204,7 @@ $(document).ready(function() {
         }
         // console.log("POST_JSON IS:", ajaxPostData)
 
-        /*    MAKE THE AJAX CALL, ONCE THERE IS A FILE LOADED  */
+        /*    MAKE THE AJAX IMG LABEL CALL, ONCE THERE IS A FILE LOADED  */
         $.ajax({
           url: 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAQPPYpUEbyZdx7UZyUmTZxL8SddruT_Uo',
           method: 'POST',
