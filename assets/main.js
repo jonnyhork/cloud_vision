@@ -29,6 +29,7 @@ $(document).ready(function() {
   let labelsString
   let sentimentScore
   let sentimentMagnitude
+  let mood
 
 
   /*           FUNCTIONS             */
@@ -143,7 +144,21 @@ $(document).ready(function() {
     sentimentMagnitude = sentimentData['documentSentiment']['magnitude']
 
     console.log("sentimentScore = ", sentimentScore);
-    console.log("sentimentMagnitude = ", sentimentMagnitude);
+    // console.log("sentimentMagnitude = ", sentimentMagnitude);
+    determineMood(sentimentScore)
+  }
+
+  let determineMood = (sentimentScore) => {
+    if (sentimentScore > -1.0 && sentimentScore <= -0.5) {
+      mood = `You seem to be upset or concerned.`
+    } else if (sentimentScore > -0.4 && sentimentScore <= 0.5) {
+      mood = `I sense you are content, perhaps neutral.`
+    } else if (sentimentScore > 0.6 && sentimentScore <= 1) {
+      mood = `It appears that you are satisfied or happy at the moment.`
+    } else {
+      mood = "did not fit in your numbers."
+    }
+    console.log("The mood is: ", mood);
   }
 
 
