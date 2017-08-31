@@ -23,8 +23,10 @@ $(document).ready(function() {
   let files
   let file
   let base64Image
-  let ajaxPostData
+  let imgAjaxPostData
+  let sentimentPostData
   let imgLabels = []
+  let labelsString
 
   /*           FUNCTIONS             */
   let getImgLabels = (data) => {
@@ -32,8 +34,12 @@ $(document).ready(function() {
     imgData = data.responses[0].labelAnnotations
 
     imgData.forEach((obj) => imgLabels.push(obj.description))
-    console.log('IMG DATA= ', imgData);
-    console.log('IMG LABELS= ', imgLabels);
+
+    labelsString = imgLabels.join()
+
+    console.log('IMG DATA = ', imgData);
+    console.log('IMG LABELS = ', imgLabels);
+    console.log('LABEL STRING = ', labelsString);
   }
 
   let crystalImg = () => {
@@ -100,6 +106,35 @@ $(document).ready(function() {
     audio.paused = true
   }
 
+  let getSentiment = (labelsString) => {
+    console.log("getSentiment() is called");
+
+    sentimentPostData = {
+      "document": {
+        "type": "PLAIN_TEXT",
+        "content": `${labelsString}`
+      },
+      "encodingType": "UTF8"
+    }
+    /*    make the AJAX call for natural language API      */
+    $.ajax({
+      url: 'https://language.googleapis.com/v1beta1/documents:analyzeSentiment?key=AIzaSyAQPPYpUEbyZdx7UZyUmTZxL8SddruT_Uo',
+      method: 'POST',
+      dataType: 'JSON',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(sentimentPostData),
+    }).done((senimentData) => {
+      console.log("SENTIMENT DATA IS = ", senimentData)
+    }).fail((err) => {
+      console.log("something failed with sentiment API: ", err);
+    }) // end of AJAX Request
+
+
+
+  } // end of getSentiment()
+
   /*     ADDING EVENT LISTENERS    */
 
   $('#dropBox').on("dragenter", dragEnter)
@@ -123,7 +158,7 @@ $(document).ready(function() {
     dataTransfer = event.dataTransfer
     files = dataTransfer.files
     file = files[0]
-    // display loading grapghic
+    // display loading grapghic?
     // console.log("DROPBOX filelist is: ", files)
     // console.log('DROPBOX imageFile: ', file)
 
@@ -139,7 +174,7 @@ $(document).ready(function() {
         crystalImg()
         // console.log("base64Image = ", base64Image);
 
-        ajaxPostData = {
+        imgAjaxPostData = {
           "requests": [{
             "image": {
               "content": `${base64Image}`
@@ -160,10 +195,11 @@ $(document).ready(function() {
           headers: {
             "Content-Type": "application/json",
           },
-          data: JSON.stringify(ajaxPostData), // end of AJAX Request
+          data: JSON.stringify(imgAjaxPostData), // end of AJAX Request
         }).done((data) => {
           // console.log("data from google is...", data)
-          // Hide loading graphic
+          getSentiment()
+          // Hide loading graphic?
           $('.message-pretext').fadeIn(1000)
           getImgLabels(data)
           createFortune(imgLabels)
