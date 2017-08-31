@@ -1,7 +1,3 @@
-body, html {
-  cursor: url(assets/img/magic.png), auto;
-}
-
 .headerBgImg {
   background: url(/assets/img/crystal-ball-table.jpg) no-repeat center center fixed;
   background-size: cover;
