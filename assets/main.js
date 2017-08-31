@@ -107,7 +107,7 @@ $(document).ready(function() {
     audio.paused = true
   }
 
-  let getSentiment = (labelsString) => {
+  let getSentiment = () => {
     console.log("getSentiment() is called");
 
     sentimentPostData = {
@@ -171,7 +171,9 @@ $(document).ready(function() {
   function drop(event) {
     event.stopPropagation()
     event.preventDefault()
+    $('.message-pretext').hide()
     imgLabels = []
+    labelsString = ''
     dataTransfer = event.dataTransfer
     files = dataTransfer.files
     file = files[0]
@@ -214,11 +216,13 @@ $(document).ready(function() {
           },
           data: JSON.stringify(imgAjaxPostData), // end of AJAX Request
         }).done((data) => {
-          // console.log("data from google is...", data)
-          getSentiment()
+
           // Hide loading graphic?
           $('.message-pretext').fadeIn(1000)
           getImgLabels(data)
+          // console.log("data from google is...", data)
+          getSentiment()
+
           createFortune(imgLabels)
           // console.log("IMG LABELS: ", imgLabels);
 
