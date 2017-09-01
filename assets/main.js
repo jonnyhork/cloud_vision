@@ -96,8 +96,7 @@ $(document).ready(function() {
   let renderFortune = (text) => {
 
     $('.message-pretext').fadeIn(1000)
-    $('#moodDiv').empty()
-    $('#fortuneText').empty()
+
     $('#fortuneText').hide().append(text).fadeIn(7000)
 
   }
@@ -192,6 +191,8 @@ $(document).ready(function() {
     event.stopPropagation()
     event.preventDefault()
     $('.message-pretext').hide()
+    $('#moodDiv').empty()
+    $('#fortuneText').empty()
     imgLabels = []
     labelsString = ''
     dataTransfer = event.dataTransfer
