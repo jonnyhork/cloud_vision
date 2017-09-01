@@ -90,12 +90,13 @@ $(document).ready(function() {
     Proceed with caution around <em>${arr[10]}</em>.</p>`
 
     renderFortune(fortune)
-    console.log("at append mood:", mood)
+    // console.log("at append mood:", mood)
   }
 
-  let renderFortune = (text, mood) => {
-    console.log("at append mood:", mood);
+  let renderFortune = (text) => {
+
     $('.message-pretext').fadeIn(1000)
+    $('#moodDiv').empty()
     $('#fortuneText').empty()
     $('#fortuneText').hide().append(text).fadeIn(7000)
 
