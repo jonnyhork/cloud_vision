@@ -87,8 +87,8 @@ $(document).ready(function() {
     <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore <em>${arr[7]}</em> or <em>${arr[8]}</em> and <em>${arr[9]}</em>.
     <br>
     <br>
-    Proceed with caution around <em>${arr[10]}</em>.</p>
-`
+    Proceed with caution around <em>${arr[10]}</em>.</p>`
+
     renderFortune(fortune)
     console.log("at append mood:", mood)
   }
@@ -106,7 +106,7 @@ $(document).ready(function() {
     audio = new Audio()
     audio.src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/music.mp3"
     audio.loop = true
-    audio.volume = .4
+    audio.volume = .8
     audio.paused = true
   }
 
