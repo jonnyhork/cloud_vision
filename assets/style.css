@@ -35,10 +35,10 @@
 
 @media(min-width: 1500px) {
   .dropzone {
-    top: 26%;
+    top: 25%;
     left: 36%;
     width: 28%;
-    height: 420px;
+    height: 435px;
   }
 }
 
