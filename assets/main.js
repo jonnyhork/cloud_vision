@@ -206,11 +206,11 @@ $(document).ready(function() {
 
     if (files && file) {
 
-      let reader = new FileReader();
+      let reader = new FileReader()
 
       reader.onload = function(readerEvt) {
-        let binaryString = readerEvt.target.result;
-        base64Image = btoa(binaryString);
+        let binaryString = readerEvt.target.result
+        base64Image = btoa(binaryString)
         crystalImg()
         // console.log("base64Image = ", base64Image);
 
@@ -253,7 +253,7 @@ $(document).ready(function() {
 
       }; // reader onload bracket
 
-      reader.readAsBinaryString(file);
+      reader.readAsBinaryString(file)
 
     } // if statement
 
