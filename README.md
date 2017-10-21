@@ -1,5 +1,7 @@
-# Turing's Crytal Ball
+# Turing's Crystal Ball
+
 ##This is my Q1 project for Galvanize
+
 ###Drag and drop and image to get your psychic reading...
 
 
