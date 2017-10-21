@@ -43,9 +43,6 @@ $(document).ready(function() {
 
     labelsString = imgLabels.join()
 
-    console.log('IMG DATA = ', imgData);
-    console.log('IMG LABELS = ', imgLabels);
-    console.log('LABEL STRING = ', labelsString);
   }
 
   let crystalImg = () => {
@@ -102,7 +99,6 @@ $(document).ready(function() {
   }
 
   function audioPlayer() {
-    console.log('audio')
     audio = new Audio()
     audio.src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/161676/music.mp3"
     audio.loop = true
@@ -111,7 +107,6 @@ $(document).ready(function() {
   }
 
   let getSentiment = () => {
-    console.log("getSentiment() is called");
     mood = ''
 
     sentimentPostData = {
@@ -131,11 +126,8 @@ $(document).ready(function() {
       },
       data: JSON.stringify(sentimentPostData),
     }).done((sentimentData) => {
-      console.log("SENTIMENT DATA IS = ", sentimentData)
       parseSentimentData(sentimentData)
-    }).fail((err) => {
-      console.log("something failed with sentiment API: ", err);
-    }) // end of AJAX Request
+    }).fail((err) => {}) // end of AJAX Request
 
 
 
@@ -144,10 +136,7 @@ $(document).ready(function() {
   let parseSentimentData = (sentimentData) => {
 
     sentimentScore = sentimentData['documentSentiment']['score']
-    // sentimentMagnitude = sentimentData['documentSentiment']['magnitude']
 
-    console.log("sentimentScore = ", sentimentScore);
-    // console.log("sentimentMagnitude = ", sentimentMagnitude);
     determineMood(sentimentScore)
   }
 
@@ -161,7 +150,7 @@ $(document).ready(function() {
     } else {
       mood = "I can't determine your mood."
     }
-    // console.log("The mood is: ", mood);
+
     $('#moodDiv').hide().append(mood).fadeIn(5000)
   }
 
@@ -176,14 +165,11 @@ $(document).ready(function() {
   /*   music play-pause   */
   $('#musicBtn').click(function() {
     if (audio.paused) {
-      audio.play();
+      audio.play()
     } else {
-      audio.pause();
+      audio.pause()
     }
-  });
-
-
-
+  })
 
   /*  ASSIGNING LOADED IMG TO VARIABLES  */
 
@@ -198,9 +184,6 @@ $(document).ready(function() {
     dataTransfer = event.dataTransfer
     files = dataTransfer.files
     file = files[0]
-    // display loading grapghic?
-    // console.log("DROPBOX filelist is: ", files)
-    // console.log('DROPBOX imageFile: ', file)
 
     /*   CONVERT TO BASE64 STRING   */
 
