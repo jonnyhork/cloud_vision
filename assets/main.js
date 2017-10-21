@@ -121,30 +121,6 @@ $(document).ready(function() {
 
   }
 
-  // let createFortune = (arr) => {
-  //   let fortune = `<p>I can see....a, wait, it's definately something like <em>${arr[0]}</em>.</p>
-  //   <p>I sense that <em>${arr[1]}</em> is in your near future, or past...
-  //   <br>
-  //   <br>
-  //   Your thoughts have been occupied recently, by things like <em>${arr[2]}</em> and <em>${arr[3]}</em>.
-  //   <br>
-  //   <br>
-  //   There is interest in <em>${arr[4]}</em>, <em>${arr[5]}</em> and <em>${arr[6]}</em> but you're not quite certain.
-  //   <br>
-  //   <br>
-  //   You prefer a certain amount of change and variety and become dissatisfied when faced with restrictions and limitations.</p>
-  //
-  //   <h3 class="message-title">Ah, yes, I sense there is more..</h3>
-  //
-  //   <p> At times you are extroverted, affable, sociable, while at other times you are introverted, wary, reserved. You shoud explore <em>${arr[7]}</em> or <em>${arr[8]}</em> and <em>${arr[9]}</em>.
-  //   <br>
-  //   <br>
-  //   Proceed with caution around <em>${arr[10]}</em>.</p>`
-  //
-  //   renderFortune(fortune)
-  //   // console.log("at append mood:", mood)
-  // }
-
   let renderFortune = (text) => {
 
     $('.message-pretext').fadeIn(1000)
